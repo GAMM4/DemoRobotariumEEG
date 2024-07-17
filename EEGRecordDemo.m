@@ -1,7 +1,7 @@
 %Code based on "go_to_point" By Sean Wilson-07/2019
 %Modified By:Jhonatan Alvarez-Laura Gama-06/2024
 
-%Initializa global variables
+%Initialize global variables
 global timeCounter; 
 global EEGClasificator;
 global eegRecords;
@@ -31,26 +31,26 @@ greenColor=1;
 blueColor=1;
 CM=zeros(5,3);
 
-%Variable for create the virtual point  Variable para crear un punto virtual a una distancia variable
+%Variable for create the virtual point 
 virtualPointDistance=0.01;
 
-%Inicializar la entrada de la se;al EEG
+%Inicialize inout for EEG signal 
 eegRecordsload=load("reading2.mat");
 eegRecords = eegRecordsload.outputHistory;
 EEGClasificator=0;
 timeCounter=1;
 
-% Define el temporizador
+% Define timer
 t = timer;
 
-% Configura el temporizador para ejecutar cada segundo
+% Configure the timer for execute the process each second
 t.Period = 1; % Intervalo en segundos
-t.ExecutionMode = 'fixedRate'; % Modo de ejecución fijo
+t.ExecutionMode = 'fixedRate'; % Modo de ejecuciÃ³n fijo
 
-% Define la función que se ejecutará cada segundo
+% Function for being execute
 t.TimerFcn = @miFuncion;
 
-% Inicia el temporizador
+% Start timer
 start(t);
 
 % Get initial location data for while loop condition.
@@ -162,7 +162,7 @@ for i = 1:trajectoryPointsNumber
     
 end
 
-%% Second Act
+%% Second Act- Dance exhibition 
 
 si_barrier_certificate = create_si_barrier_certificate();
 si_to_uni_dynamics = create_si_to_uni_dynamics(); 
@@ -417,9 +417,6 @@ while and((i < length(x1)),(i < trajectoryPointsNumber))
     end
 end
 
-% We can call this function to debug our experiment!  Fix all the errors
-% before submitting to maximize the chance that your experiment runs
-% successfully.
 % stop(song);
 stop(t);
 delete(t);
